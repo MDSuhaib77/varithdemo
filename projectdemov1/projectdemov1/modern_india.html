@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #0a1a4a;
+            --deep-blue: #050e29;
+            --gold: #d4af37;
+            --light-gold: #f1e5ac;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cinzel Decorative', serif;
+        }
+        
+        body {
+            background: var(--deep-blue);
+            color: var(--light-gold);
+            line-height: 1.6;
+        }
+        
+        header {
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(5, 14, 41, 0.8), rgba(10, 26, 74, 0.9));
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 40px;
+        }
+        
+        .header-title {
+            font-size: 100px;
+            color: var(--gold);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.7);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(5, 14, 41, 0.7);
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .section:nth-child(1) .content-wrapper {
+            flex-direction: row;
+            margin-left: 20px;
+        }
+        
+        .section:nth-child(2) .content-wrapper {
+            flex-direction: row-reverse;
+            margin-right: 40px;
+        }
+        
+        .section:nth-child(3) .content-wrapper {
+            flex-direction: row;
+            margin-left: 40px;
+        }
+        
+        .section:nth-child(4) .content-wrapper {
+            flex-direction: row-reverse;
+            margin-right: 20px;
+        }
+        
+        .section:nth-child(5) .content-wrapper {
+            flex-direction: row;
+            margin-left: 40px;
+        }
+        
+        .section:nth-child(6) .content-wrapper {
+            flex-direction: row-reverse;
+            margin-right: 20px;
+        }
+        
+        .section:nth-child(7) .content-wrapper {
+            flex-direction: row;
+            margin-left: 40px;
+        }
+        
+        .section:nth-child(8) .content-wrapper {
+            flex-direction: row-reverse;
+            margin-right: 20px;
+        }
+        
+        .section:nth-child(9) .content-wrapper {
+            flex-direction: row;
+            margin-left: 40px;
+        }
+        
+        .text-content {
+            flex: 1;
+            padding: 10px;
+        }
+        
+        .image-container {
+            width: 400px;
+            position: relative;
+            text-align: center;
+            margin: 10px auto;
+        }
+        
+        .historical-image {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .image-title {
+            font-size: 14px;
+            color: var(--light-gold);
+            text-align: center;
+        }
+        
+        h2 {
+            color: var(--gold);
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+        }
+        
+        .section:nth-child(1) h2 { text-align: left; }
+        .section:nth-child(2) h2 { text-align: right; }
+        .section:nth-child(3) h2 { text-align: left; }
+        .section:nth-child(4) h2 { text-align: right; }
+        .section:nth-child(5) h2 { text-align: left; }
+        .section:nth-child(6) h2 { text-align: right; }
+        .section:nth-child(7) h2 { text-align: left; }
+        .section:nth-child(8) h2 { text-align: right; }
+        .section:nth-child(9) h2 { text-align: left; }
+        
+        .sub-section {
+            margin: 20px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        h4 {
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .highlight-box {
+            padding: 10px 0;
+            margin: 10px 0;
+            border-left: 2px solid var(--gold);
+            font-style: italic;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 15px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        li::before {
+            content: '•';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        .bibliography {
+            font-size: 14px;
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(5, 14, 41, 0.7);
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+        
+        .bibliography h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .bibliography ol {
+            padding-left: 20px;
+        }
+        
+        .bibliography li {
+            margin-bottom: 5px;
+            padding-left: 0;
+        }
+        
+        .bibliography li::before {
+            display: none;
+        }
+        
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                flex-direction: column !important;
+                margin: 0 !important;
+            }
+            
+            .image-container {
+                width: 100%;
+                max-width: 500px;
+                margin: 10px auto;
+            }
+            
+            h2 {
+                text-align: center !important;
+            }
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 30px rgba(212, 175, 55, 0.7); }
+            to { text-shadow: 0 0 50px rgba(212, 175, 55, 0.9); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Modern India</h1>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2>Introduction</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The Indian independence movement was a prolonged struggle aimed at ending British colonial rule in India. Spanning from the mid-19th century until 1947, it encompassed various strategies, ideologies, and key figures, ultimately leading to the establishment of an independent Indian nation.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Historical Significance</h4>
+                        <p>This era marked the transition from colonial rule to independence, characterized by the emergence of a unified national identity, the development of political institutions, and the struggle for self-governance. The modern period laid the foundation for the contemporary Indian state and its democratic framework.</p>
+                        <div class="highlight-box">
+                            <p>The interplay of diverse political ideologies, social reform movements, and mass mobilizations created a powerful force that eventually led to the end of British colonial rule and the birth of an independent India.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/India%2C_by_British_Information_Services%2C_1944_restored_version.jpg/800px-India%2C_by_British_Information_Services%2C_1944_restored_version.jpg" alt="British India Map" class="historical-image">
+                    <div class="image-title">British India Map (1944)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Early Resistance Against British Rule</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Before the formal independence movement began, several regional leaders and warriors across India resisted British colonial expansion through armed struggle and local uprisings.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Notable Early Resistance Leaders</h4>
+                        <ul>
+                            <li><strong>Maruthanayagam Pillai (1725–1764):</strong> Born in Keelapanaiyur, Tamil Nadu, he initially served in the British East India Company's army. Disillusioned with British policies, he rebelled against them, leading a significant uprising. His revolt was eventually suppressed, and he was executed in 1764.</li>
+                            <li><strong>Pazhassi Raja (1753–1805):</strong> Known as the "Lion of Kerala," he was the de facto head of the Kottayam Kingdom in the Malabar region. He led the Cotiote War (1793–1805) against the British East India Company, employing guerrilla tactics in the dense forests of Wayanad.</li>
+                            <li><strong>Veeran Alagumuthu Kone (1728–1759):</strong> A polygar from Tamil Nadu, he led armed resistance against the British East India Company between 1750 and 1759. Captured during a battle, he was executed in 1759, becoming a symbol of early resistance against colonial forces.</li>
+                            <li><strong>Tipu Sultan (1751–1799):</strong> Known as the "Tiger of Mysore," he was the ruler of the Kingdom of Mysore. He fiercely opposed British expansion in India, engaging in four Anglo-Mysore Wars. A pioneer in using rocket artillery, he died in 1799 during the Siege of Seringapatam, resisting British forces.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>These early resistance movements, though localized, demonstrated the widespread opposition to British colonial rule and laid the groundwork for the later organized independence struggle.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/TipuSultan1790.jpg/500px-TipuSultan1790.jpg" alt="Tipu Sultan" class="historical-image">
+                    <div class="image-title">Tipu Sultan - The Tiger of Mysore</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The Revolt of 1857: The First War of Independence</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The Revolt of 1857, also known as the First War of Indian Independence, was a significant uprising against the British East India Company's rule. Sparked by various factors, including political annexations, economic exploitation, and cultural insensitivity, the rebellion began in Meerut and rapidly spread to other parts of northern and central India.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Key Figures and Events</h4>
+                        <ul>
+                            <li><strong>Rani Lakshmibai of Jhansi:</strong> One of the leading figures of the rebellion, who fought against the British forces until her death in battle.</li>
+                            <li><strong>Tantia Tope:</strong> A prominent military leader who organized resistance against the British.</li>
+                            <li><strong>Bahadur Shah Zafar:</strong> The last Mughal emperor, who was proclaimed the Emperor of Hindustan by the rebels.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>Despite its eventual suppression, the revolt marked a turning point, leading to the dissolution of the East India Company and the establishment of direct British Crown rule over India.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Rani_of_jhansi.jpg" alt="Rani Lakshmibai" class="historical-image">
+                    <div class="image-title">Rani Lakshmibai of Jhansi - Heroine of 1857</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Early Nationalist Efforts</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The initial phase of the movement was marked by moderate demands for greater Indian participation in governance. The formation of the Indian National Congress (INC) in 1885 provided a platform for political dialogue and reform.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Key Developments</h4>
+                        <ul>
+                            <li><strong>Indian National Congress:</strong> Founded by A.O. Hume, a retired British civil servant, with the initial aim of providing a platform for civil and political dialogue among educated Indians.</li>
+                            <li><strong>Early Leaders:</strong> Dadabhai Naoroji and Surendranath Banerjee advocated for civil rights and administrative reforms within the framework of British rule.</li>
+                            <li><strong>Socio-Religious Reform Movements:</strong> Organizations like the Brahmo Samaj and Arya Samaj contributed to a growing sense of national identity and unity.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>These early nationalist efforts laid the foundation for the more assertive forms of protest that would emerge in the early 20th century.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/1st_INC1885.jpg" alt="First Indian National Congress" class="historical-image">
+                    <div class="image-title">First Indian National Congress (1885)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Emergence of Mass Movements</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The early 20th century witnessed a shift towards more assertive forms of protest, with the emergence of mass movements that mobilized people across the country.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Key Movements and Leaders</h4>
+                        <ul>
+                            <li><strong>Swadeshi and Boycott Movement (1905–1911):</strong> Sparked by the partition of Bengal, it advocated for the boycott of British goods and the promotion of indigenous industries.</li>
+                            <li><strong>Home Rule Movement (1916–1918):</strong> Initiated by Bal Gangadhar Tilak and Annie Besant, it sought self-governance within the British Empire.</li>
+                            <li><strong>Extremist Leaders:</strong> Bal Gangadhar Tilak, Bipin Chandra Pal, and Lala Lajpat Rai became prominent figures, emphasizing swaraj (self-rule) and mass mobilization.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>These mass movements marked a significant shift from moderate demands to more assertive forms of protest, laying the groundwork for the later Gandhian era.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Sri_Aurobindo_presiding_over_a_meeting_of_the_Nationalists_after_the_Surat_Congress%2C_with_Tilak_speaking%2C_1907.jpg" alt="Nationalist Meeting" class="historical-image">
+                    <div class="image-title">Nationalist Meeting with Tilak Speaking (1907)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Revolutionary Activities</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Parallel to non-violent protests, revolutionary groups emerged, advocating for armed resistance against British rule.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Key Revolutionary Groups and Actions</h4>
+                        <ul>
+                            <li><strong>Hindustan Socialist Republican Association (HSRA):</strong> Founded by Bhagat Singh, Chandrashekhar Azad, and others, it aimed to overthrow British rule through revolutionary means.</li>
+                            <li><strong>Notable Actions:</strong> The Kakori train robbery and the bombing of the Central Legislative Assembly were significant acts of defiance against colonial authority.</li>
+                            <li><strong>Ghadar Party:</strong> Formed by Indian expatriates in North America, it sought to initiate a pan-Indian mutiny against British rule.</li>
+                            <li><strong>Anushilan Samiti and Jugantar:</strong> Secret societies in Bengal that carried out political assassinations and bombings against British officials.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>These revolutionary activities, though limited in scale, played a significant role in inspiring youth and keeping the spirit of resistance alive.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Bhagat_Singh_1929.jpg/800px-Bhagat_Singh_1929.jpg" alt="Bhagat Singh" class="historical-image">
+                    <div class="image-title">Bhagat Singh - Revolutionary Freedom Fighter</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Gandhian Era and Civil Disobedience</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Mahatma Gandhi's leadership introduced a new dimension to the movement through the principles of non-violence and civil disobedience.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Major Campaigns</h4>
+                        <ul>
+                            <li><strong>Non-Cooperation Movement (1920–1922):</strong> Led by Mahatma Gandhi, it involved the boycott of British institutions, titles, and goods. The movement was suspended following the Chauri Chaura incident.</li>
+                            <li><strong>Civil Disobedience Movement (1930–1934):</strong> Launched with the iconic Dandi March, where Gandhi marched 240 miles to produce salt, defying the British monopoly. The movement saw widespread participation, including the boycott of foreign cloth and refusal to pay taxes.</li>
+                            <li><strong>Quit India Movement (1942):</strong> In the backdrop of World War II, the INC launched this movement, demanding an end to British rule. The movement was marked by mass protests, strikes, and demonstrations.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>Gandhi's approach emphasized peaceful protest and self-sacrifice, significantly broadening the movement's appeal and mobilizing millions across the country.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/800px-Mahatma-Gandhi%2C_studio%2C_1931.jpg" alt="Mahatma Gandhi" class="historical-image">
+                    <div class="image-title">Mahatma Gandhi - Leader of the Indian Independence Movement</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Role of Women and Regional Contributions</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Women played a crucial role in the independence struggle, participating in protests, leading movements, and inspiring change.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Notable Women Leaders</h4>
+                        <ul>
+                            <li><strong>Sarojini Naidu:</strong> Known as the "Nightingale of India," she was a prominent poet, politician, and orator who played a key role in the independence movement.</li>
+                            <li><strong>Aruna Asaf Ali:</strong> A prominent leader during the Quit India Movement, she went underground to continue the struggle after the arrest of major leaders.</li>
+                            <li><strong>Kasturba Gandhi:</strong> Mahatma Gandhi's wife, who actively participated in various movements and was imprisoned several times for her involvement.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>Additionally, regional movements across India contributed to the national cause through local uprisings and resistance against colonial policies, demonstrating the widespread nature of the independence struggle.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sarojini-naidu-2.jpg" alt="Sarojini Naidu" class="historical-image">
+                    <div class="image-title">Sarojini Naidu - The Nightingale of India</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Path to Independence and Partition</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The culmination of India's struggle for independence was marked by the Indian Independence Act of 1947, which led to the partition of British India into two sovereign nations: India and Pakistan.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Key Events</h4>
+                        <ul>
+                            <li><strong>World War II and the Cripps Mission:</strong> During World War II, the British unilaterally included India in the war effort without consulting Indian leaders, leading to widespread discontent.</li>
+                            <li><strong>Indian Independence Act (1947):</strong> The British Parliament passed this act, which provided for the partition of British India into two independent dominions: India and Pakistan.</li>
+                            <li><strong>Partition and Its Aftermath:</strong> The partition led to one of the largest mass migrations in history, with millions of Hindus, Muslims, and Sikhs crossing borders to join their chosen nation.</li>
+                            <li><strong>Constitution of India:</strong> India adopted its constitution on January 26, 1950, establishing itself as a secular, democratic republic.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>The achievement of independence, albeit accompanied by the tragedy of partition, marked the end of colonial rule and the beginning of a new chapter in Indian history.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/PM_Nehru_addresses_the_nation_from_the_Red_Fort_on_15_August_1947.jpg" alt="Jawaharlal Nehru addressing the nation" class="historical-image">
+                    <div class="image-title">Jawaharlal Nehru addressing the nation from the Red Fort on August 15, 1947</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Conclusion</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The Indian independence movement was a testament to the nation's resilience and unity in diversity, characterized by a multitude of movements, ideologies, and leaders.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Legacy</h4>
+                        <p>From the early resistance of regional leaders to the mass mobilizations led by the Indian National Congress and revolutionary groups, the movement demonstrated the power of collective action. The eventual achievement of independence, albeit accompanied by the tragedy of partition, laid the foundation for the modern Indian state.</p>
+                        <div class="highlight-box">
+                            <p>The principles of non-violence, unity in diversity, and democratic governance that emerged during this period continue to shape India's national identity and political framework.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1280px-Flag_of_India.svg.png" alt="Indian Flag" class="historical-image">
+                    <div class="image-title">Indian National Flag - Symbol of Independence</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bibliography">
+            <h2>Bibliography</h2>
+            <ol>
+                <li>"Indian Independence Movement." Britannica. https://www.britannica.com/topic/Indian-Independence-Movement</li>
+                <li>"Timeline of the Indian Independence Movement." Britannica. https://www.britannica.com/topic/Timeline-of-the-Indian-Independence-Movement</li>
+                <li>"Indian Rebellion of 1857." Britannica. https://www.britannica.com/event/Indian-Rebellion-of-1857</li>
+                <li>"Quit India Movement." Britannica. https://www.britannica.com/event/Quit-India-Movement</li>
+                <li>"Indian Independence Act." Britannica. https://www.britannica.com/topic/Indian-Independence-Act-1947</li>
+                <li>"India - Partition, Independence, Freedom." Britannica. https://www.britannica.com/place/India/The-transfer-of-power-and-the-birth-of-two-countries</li>
+                <li>"Freedom Fighters of India (1857-1947) and their Contribution." Study IQ Education. https://www.studyiq.com/articles/freedom-fighters-of-india/</li>
+                <li>"List of Indian National Movement Phases 1857-1947." Study IQ Education. https://www.studyiq.com/articles/indian-national-movement/</li>
+                <li>"Swadeshi Movement, Background, Leaders, Significance, Outcome." Study IQ Education. https://www.studyiq.com/articles/swadeshi-movement/</li>
+                <li>"Home Rule Movement, History, Objectives, Need, Significance, Failure." Study IQ Education. https://www.studyiq.com/articles/home-rule-movement/</li>
+                <li>"Civil Disobedience Movement, Causes, Impacts and Limitations." Study IQ Education. https://www.studyiq.com/articles/civil-disobedience-movement/</li>
+                <li>"Socio-Religious Reform Movements History, Hindu, Muslims, Aspects and Impact." Study IQ Education. https://www.studyiq.com/articles/socio-religious-reform-movements/</li>
+                <li>"Rise of Nationalism in India, Learn all about Indian Nationalism." Study IQ Education. https://www.studyiq.com/articles/rise-of-nationalism-in-india/</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html> 

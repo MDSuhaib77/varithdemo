@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChronoVision | Immersive History Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Add Three.js dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="bg-elements"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <img src="image-removebg-preview.png" alt="Varith Logo" class="logo-img">
+          </div>
+        <ul class="nav-links">
+            
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">Indian History <span class="dropdown-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Ancient</a></li>
+                    <li><a href="#">Medieval</a></li>
+                    <li><a href="#">Modern</a></li>
+                </ul>
+            </li>
+            
+            
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">World History <span class="dropdown-arrow">▼</span></a>
+                <ul class="dropdown-menu wide-menu">
+                    <li><a href="#">African History</a></li>
+                    <li><a href="#">Asian History</a></li>
+                    <li><a href="#">Cold War</a></li>
+                    <li><a href="#">European History</a></li>
+                    <li><a href="#">Exploration</a></li>
+                    <li><a href="#">Holocaust</a></li>
+                    <li><a href="#">Industrial Revolution</a></li>
+                    <li><a href="#">Latin American & Caribbean History</a></li>
+                    <li><a href="#">Middle Eastern History</a></li>
+                    <li><a href="#">World War I</a></li>
+                    <li><a href="#">World War II</a></li>
+                    <li><a href="#">Vietnam War</a></li>
+                </ul>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">Eras <span class="dropdown-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Prehistory</a></li>
+                    <li><a href="#">Middle Ages</a></li>
+                    <li><a href="#">Renaissance</a></li>
+                    <li><a href="#">19th Century</a></li>
+                    <li><a href="#">20th Century</a></li>
+                    <li><a href="#">21st Century</a></li>
+                </ul>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">Culture <span class="dropdown-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Arts & Entertainment</a></li>
+                    <li><a href="#">Food</a></li>
+                    <li><a href="#">Holidays</a></li>
+                    <li><a href="#">Landmarks</a></li>
+                    <li><a href="#">Mysteries & Folklore</a></li>
+                    <li><a href="#">Religion</a></li>
+                    <li><a href="#">Sports</a></li>
+                </ul>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">Science & Innovation <span class="dropdown-arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Inventions & Science</a></li>
+                    <li><a href="#">Natural Disasters & Environment</a></li>
+                    <li><a href="#">Space Exploration</a></li>
+                    <li><a href="#">Archaeology</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <!-- Mobile menu button -->
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D Globe -->
+    <section class="hero-globe">
+        <div id="stars-container"></div>
+        <div id="globe-container">
+            <canvas id="globe-canvas"></canvas>
+        </div>
+        
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <div class="welcome-container">
+                <div class="welcome-content">
+                    <h2 class="welcome-greeting">Welcome Back, <span class="user-name">Explorer</span></h2>
+                    <div class="login-form">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" placeholder="Password">
+                        </div>
+                        <button class="login-btn">Sign In</button>
+                        <div class="form-footer">
+                            <a href="#" class="forgot-link">Forgot Password?</a>
+                            <a href="#" class="signup-link">Create Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Stats Box -->
+        <div class="quiz-stats-container">
+            <div class="quiz-stats-box">
+                <h3 class="stats-title">Quiz Progress</h3>
+                
+                <!-- Overall Progress Pie Chart -->
+                <div class="chart-container">
+                    <div class="pie-chart">
+                        <div class="pie-chart-inner">
+                            <div class="pie-chart-center">75%</div>
+                        </div>
+                    </div>
+                    <div class="chart-label">Overall Progress</div>
+                </div>
+
+                <!-- Performance Bar Graph -->
+                <div class="chart-container">
+                    <div class="bar-graph">
+                        <div class="bar" style="height: 80%">
+                            <span class="bar-label">Ancient</span>
+                            <span class="bar-value">80%</span>
+                        </div>
+                        <div class="bar" style="height: 65%">
+                            <span class="bar-label">Medieval</span>
+                            <span class="bar-value">65%</span>
+                        </div>
+                        <div class="bar" style="height: 90%">
+                            <span class="bar-label">Modern</span>
+                            <span class="bar-value">90%</span>
+                        </div>
+                        <div class="bar" style="height: 45%">
+                            <span class="bar-label">Future</span>
+                            <span class="bar-value">45%</span>
+                        </div>
+                    </div>
+                    <div class="chart-label">Performance by Era</div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">24</span>
+                        <span class="stat-label">Questions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">18</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">75%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-display" id="event-display">
+            <div class="event-content">
+                <h2 class="event-title"></h2>
+                <div class="event-details">
+                    <span class="event-date"></span>
+                    <p class="event-description"></p>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="50" viewBox="0 0 30 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" y="12" width="6" height="15" rx="3" fill="#D4AF37"/>
+                <path d="M15 40L22 33L8 33L15 40Z" fill="#D4AF37"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Removed Timeline Section -->
+
+    <!-- Removed VR Section -->
+
+    <!-- Removed Quiz Section and Quiz Stats Box -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Timelines</a></li>
+                    <li><a href="#" class="footer-link">VR Tours</a></li>
+                    <li><a href="#" class="footer-link">Quizzes</a></li>
+                    <li><a href="#" class="footer-link">This Day in History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Learn</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Ancient History</a></li>
+                    <li><a href="#" class="footer-link">Medieval History</a></li>
+                    <li><a href="#" class="footer-link">Modern History</a></li>
+                    <li><a href="#" class="footer-link">Cultural History</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Contact</a></li>
+                    <li><a href="#" class="footer-link">Careers</a></li>
+                    <li><a href="#" class="footer-link">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">f</a>
+                    <a href="#" class="social-link">t</a>
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">ig</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Varith Interactive History. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="backend/auth.js"></script>
+    <script src="backend/ui.js"></script>
+    <script src="globe.js"></script>
+</body>
+</html>

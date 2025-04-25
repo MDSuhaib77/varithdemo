@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #0a1a4a;
+            --deep-blue: #050e29;
+            --gold: #d4af37;
+            --light-gold: #f1e5ac;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cinzel Decorative', serif;
+        }
+        
+        body {
+            background: var(--deep-blue);
+            color: var(--light-gold);
+            line-height: 1.6;
+        }
+        
+        .india-outline {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M500,100 C600,150 700,200 800,300 C900,400 950,500 950,600 C950,700 900,800 800,850 C700,900 600,950 500,950 C400,950 300,900 200,850 C100,800 50,700 50,600 C50,500 100,400 200,300 C300,200 400,150 500,100 Z" fill="none" stroke="%23d4af37" stroke-width="2" opacity="0.1"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        header {
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(5, 14, 41, 0.8), rgba(10, 26, 74, 0.9));
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 40px;
+        }
+        
+        .header-title {
+            font-size: 100px;
+            color: var(--gold);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.7);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(5, 14, 41, 0.7);
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .section:nth-child(1) .content-wrapper {
+            flex-direction: row;
+            margin-left: 20px;
+        }
+        
+        .section:nth-child(2) .content-wrapper {
+            flex-direction: row-reverse;
+            margin-right: 40px;
+        }
+        
+        .section:nth-child(3) .content-wrapper {
+            flex-direction: row;
+            margin-left: 40px;
+        }
+        
+        .section:nth-child(4) .content-wrapper {
+            flex-direction: row;
+            margin-left: 40px;
+        }
+        
+        .section:nth-child(5) .content-wrapper {
+            flex-direction: row-reverse;
+            margin-right: 20px;
+        }
+        
+        .text-content {
+            flex: 1;
+            padding: 10px;
+        }
+        
+        .image-container {
+            width: 400px;
+            position: relative;
+            text-align: center;
+            margin: 10px auto;
+        }
+        
+        .historical-image {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .image-attribution {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            background: rgba(5, 14, 41, 0.9);
+            color: var(--light-gold);
+            padding: 5px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid var(--gold);
+        }
+        
+        .image-title {
+            font-size: 14px;
+            color: var(--light-gold);
+            text-align: center;
+        }
+        
+        h2 {
+            color: var(--gold);
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+        }
+        
+        .section:nth-child(1) h2 { text-align: left; }
+        .section:nth-child(2) h2 { text-align: right; }
+        .section:nth-child(3) h2 { text-align: left; }
+        .section:nth-child(4) h2 { text-align: left; }
+        .section:nth-child(5) h2 { text-align: right; }
+        
+        .sub-section {
+            margin: 20px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        h4 {
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .highlight-box {
+            padding: 10px 0;
+            margin: 10px 0;
+            border-left: 2px solid var(--gold);
+            font-style: italic;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 15px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        li::before {
+            content: '•';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                flex-direction: column !important;
+                margin: 0 !important;
+            }
+            
+            .image-container {
+                width: 100%;
+                max-width: 500px;
+                margin: 10px auto;
+            }
+            
+            h2 {
+                text-align: center !important;
+            }
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 30px rgba(212, 175, 55, 0.7); }
+            to { text-shadow: 0 0 50px rgba(212, 175, 55, 0.9); }
+        }
+    </style>
+</head>
+<body>
+    <div class="india-outline"></div>
+    <header>
+        <h1 class="header-title">Ancient India</h1>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2>The Stone Age Foundations (Before 3300 BCE)</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The subcontinent's prehistoric chapter reveals fascinating adaptations to changing environments. During the Paleolithic era, early humans left behind distinctive stone tools across varied landscapes - from the quartzite implements of the Soan Valley to the delicate blades found in southern India. The Bhimbetka rock shelters in Madhya Pradesh preserve an extraordinary gallery of rock art, with some paintings dating back 30,000 years, depicting vibrant scenes of hunting, dancing, and ritual ceremonies. These shelters show continuous human occupation from the Stone Age through medieval times, offering archaeologists a unique timeline of cultural evolution.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Agricultural Revolution</h4>
+                        <p>The agricultural revolution transformed Indian society between 7000-2000 BCE. At Mehrgarh in Balochistan, archaeologists uncovered evidence of the world's earliest cotton cultivation and surprisingly advanced dentistry - including drilled teeth with bitumen fillings dating to 7000 BCE. Neolithic communities developed sophisticated irrigation techniques, domesticated animals like zebu cattle, and created distinctive pottery styles. The transition from nomadic life to settled agriculture laid the groundwork for India's first urban civilization.</p>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Rock_Shelter_8%2C_Bhimbetka_02.jpg/390px-Rock_Shelter_8%2C_Bhimbetka_02.jpg" alt="Bhimbetka Rock Shelters" class="historical-image">
+                    <div class="image-title">Bhimbetka Rock Shelters</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The Indus Valley Civilization: Urban Pioneers (3300-1300 BCE)</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The cities of the Indus Valley represent one of humanity's earliest experiments with large-scale urban living. Mohenjo-Daro and Harappa, the best-known sites, displayed remarkable civic planning with their grid-patterned streets, standardized brick construction, and advanced sanitation systems that included covered drains and household toilets. The Great Bath at Mohenjo-Daro, measuring 12 meters by 7 meters, was an engineering marvel with its precise brickwork and watertight construction using bitumen - likely serving both ritual and social purposes.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Economic Sophistication</h4>
+                        <p>This civilization's economic sophistication becomes evident through its standardized weights and measures, extensive trade networks reaching Mesopotamia, and specialized craft production. Artisans created exquisite carnelian beads, delicate shell ornaments, and bronze figurines like the famous "Dancing Girl" with her confident stance and ornate jewelry.</p>
+                        <div class="highlight-box">
+                            <p>The undeciphered Indus script, preserved on thousands of seals and tablets, remains one of archaeology's greatest puzzles - its 400+ symbols may represent an early Dravidian language, but their exact meaning continues to elude scholars.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Mohenjo-daro.jpg/330px-Mohenjo-daro.jpg" alt="Mohenjo-daro Ruins" class="historical-image">
+                    <div class="image-title">Mohenjo-daro</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The Vedic Transformation (1500-500 BCE)</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The arrival of Indo-Aryan peoples brought profound cultural changes, marked by the composition of the Vedas - sacred texts that would form the bedrock of Hindu philosophy. The Rigveda, the oldest of these texts, contains 1,028 hymns composed over centuries, preserving not just religious ideas but glimpses of daily life - from chariot races to cattle raids. The Sarasvati River, praised in the Rigveda as "mightiest of rivers," once flowed through what is now the Thar Desert before drying up around 1900 BCE due to tectonic shifts, as confirmed by modern satellite imagery.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Social Evolution</h4>
+                        <p>Vedic society gradually transitioned from pastoral nomadism to settled agriculture, especially after the introduction of iron tools around 1200 BCE enabled clearing of the dense Ganges plain forests. The later Vedic period saw the development of more complex social structures, with the varna system emerging as a theoretical framework that would later evolve into the caste system.</p>
+                        <div class="highlight-box">
+                            <p>Philosophical speculation in the Upanishads marked a shift from external rituals to internal contemplation, introducing concepts like karma, rebirth, and moksha (liberation) that would become central to Indian thought.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Rigveda_MS2097.jpg/500px-Rigveda_MS2097.jpg" alt="Rigveda Manuscript" class="historical-image">
+                    <div class="image-title">Rigveda Manuscript</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Spiritual Revolutions (6th Century BCE)</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The mid-first millennium BCE witnessed an extraordinary flowering of spiritual thought that challenged Vedic orthodoxy. Siddhartha Gautama, later known as the Buddha, developed a radical new path that emphasized individual effort over ritual or caste status. His teachings - encapsulated in the Four Noble Truths and Eightfold Path - offered a practical guide to ending suffering through mental discipline and ethical living. The Buddha's use of everyday metaphors - comparing the mind to a restless monkey or life to a flickering lamp - made profound truths accessible to all levels of society.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Jain Philosophy</h4>
+                        <p>Contemporary to the Buddha, Mahavira established Jainism with its extreme emphasis on non-violence (ahimsa). Jain monks developed meticulous practices to avoid harming even microscopic life forms - sweeping their path, filtering drinking water, and wearing mouth covers.</p>
+                        <div class="highlight-box">
+                            <p>The Jain philosophical system of anekantavada (multiple viewpoints) represents one of history's earliest approaches to epistemological relativism. Both Buddhism and Jainism established monastic traditions that would preserve and transmit knowledge for centuries.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG/500px-East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG" alt="Sanchi Stupa" class="historical-image">
+                    <div class="image-title">Sanchi Stupa</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The Mauryan Empire: First Unification (322-185 BCE)</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Chandragupta Maurya's empire marked India's first political unification on a subcontinental scale. The Arthashastra, a political treatise attributed to his minister Chanakya, reveals an astonishingly sophisticated administrative system featuring detailed spy networks, economic regulations, and military strategies. The empire reached its zenith under Ashoka, who after the brutal Kalinga war (261 BCE) experienced a profound spiritual transformation and embraced Buddhism.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Revolutionary Governance</h4>
+                        <p>Ashoka's reign introduced revolutionary concepts of governance. His rock and pillar edicts, inscribed across the subcontinent in local dialects, promoted moral principles rather than royal glorification. He established wildlife protection laws (the earliest known), built hospitals for humans and animals alike, and sent Buddhist missionaries as far as Syria, Egypt, and Greece - potentially influencing Hellenistic thought.</p>
+                        <div class="highlight-box">
+                            <p>The Lion Capital from his pillar at Sarnath, now India's national emblem, symbolizes this visionary rule.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ashoka_pillar_at_Vaishali%2C_Bihar%2C_India.jpg/1280px-Ashoka_pillar_at_Vaishali%2C_Bihar%2C_India.jpg" alt="Ashoka Pillar" class="historical-image">
+                    <div class="image-title">Ashoka Pillar</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The Gupta Golden Age (320-550 CE)</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The Gupta period represents one of history's most remarkable flowerings of scientific and cultural achievement. Mathematician Aryabhata calculated π to 3.1416 and proposed Earth's rotation a millennium before Copernicus. Medical texts like the Sushruta Samhita describe sophisticated surgical techniques including cataract operations and plastic reconstruction of noses - procedures that would not be matched in Europe until the 18th century.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Cultural Achievements</h4>
+                        <p>This era saw the crystallization of classical Indian art and literature. Kalidasa's plays like Shakuntala combined poetic beauty with psychological depth, while the Ajanta cave paintings demonstrated mastery of perspective and emotion.</p>
+                        <div class="highlight-box">
+                            <p>The decimal numeral system with place-value zero, developed during this period, would eventually revolutionize mathematics worldwide after being transmitted through Arab scholars.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/SamudraguptaCoin.png/330px-SamudraguptaCoin.png" alt="Gupta Gold Coin" class="historical-image">
+                    <div class="image-title">Samudragupta Coin</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bibliography">
+            <h2>Bibliography and Attribution</h2>
+            <p class="attribution">Primary Source:<br>
+            World History Encyclopedia. "Ancient India."</p>
+            
+            <p class="license">License:<br>
+            Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA 4.0)</p>
+            
+            <h3>Additional Recommended Sources (Public Domain):</h3>
+            <ol>
+                <li>Smith, Vincent A. <em>The Early History of India</em>. Oxford: Clarendon Press, 1904.</li>
+                <li>Majumdar, R.C. <em>Ancient India</em>. Delhi: Motilal Banarsidass, 1952.</li>
+                <li>Archaeological Survey of India Annual Reports (1861-1947)</li>
+            </ol>
+            
+            <p class="adaptation">"Adapted from World History Encyclopedia (worldhistory.org) with additional scholarly sources. Licensed under CC BY-NC-SA 4.0."</p>
+        </div>
+    </div>
+</body>
+</html>

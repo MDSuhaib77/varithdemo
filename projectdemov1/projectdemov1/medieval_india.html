@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medieval India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #0a1a4a;
+            --deep-blue: #050e29;
+            --gold: #d4af37;
+            --light-gold: #f1e5ac;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cinzel Decorative', serif;
+        }
+        
+        body {
+            background: var(--deep-blue);
+            color: var(--light-gold);
+            line-height: 1.6;
+        }
+        
+        header {
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(5, 14, 41, 0.8), rgba(10, 26, 74, 0.9));
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 40px;
+        }
+        
+        .header-title {
+            font-size: 100px;
+            color: var(--gold);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.7);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(5, 14, 41, 0.7);
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .section:nth-child(1) .content-wrapper {
+            flex-direction: row;
+            margin-left: 20px;
+        }
+        
+        .section:nth-child(2) .content-wrapper {
+            flex-direction: row-reverse;
+            margin-right: 40px;
+        }
+        
+        .section:nth-child(3) .content-wrapper {
+            flex-direction: row;
+            margin-left: 40px;
+        }
+        
+        .section:nth-child(4) .content-wrapper {
+            flex-direction: row-reverse;
+            margin-right: 20px;
+        }
+        
+        .section:nth-child(5) .content-wrapper {
+            flex-direction: row;
+            margin-left: 40px;
+        }
+        
+        .text-content {
+            flex: 1;
+            padding: 10px;
+        }
+        
+        .image-container {
+            width: 400px;
+            position: relative;
+            text-align: center;
+            margin: 10px auto;
+        }
+        
+        .historical-image {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .image-title {
+            font-size: 14px;
+            color: var(--light-gold);
+            text-align: center;
+        }
+        
+        h2 {
+            color: var(--gold);
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+        }
+        
+        .section:nth-child(1) h2 { text-align: left; }
+        .section:nth-child(2) h2 { text-align: right; }
+        .section:nth-child(3) h2 { text-align: left; }
+        .section:nth-child(4) h2 { text-align: right; }
+        .section:nth-child(5) h2 { text-align: left; }
+        
+        .sub-section {
+            margin: 20px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        h4 {
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .highlight-box {
+            padding: 10px 0;
+            margin: 10px 0;
+            border-left: 2px solid var(--gold);
+            font-style: italic;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 15px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        li::before {
+            content: '•';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        .bibliography {
+            font-size: 14px;
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(5, 14, 41, 0.7);
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+        
+        .bibliography h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .bibliography ol {
+            padding-left: 20px;
+        }
+        
+        .bibliography li {
+            margin-bottom: 5px;
+            padding-left: 0;
+        }
+        
+        .bibliography li::before {
+            display: none;
+        }
+        
+        .bibliography em {
+            color: var(--gold);
+            font-style: italic;
+        }
+        
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                flex-direction: column !important;
+                margin: 0 !important;
+            }
+            
+            .image-container {
+                width: 100%;
+                max-width: 500px;
+                margin: 10px auto;
+            }
+            
+            h2 {
+                text-align: center !important;
+            }
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 30px rgba(212, 175, 55, 0.7); }
+            to { text-shadow: 0 0 50px rgba(212, 175, 55, 0.9); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Medieval India</h1>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2>Introduction</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The medieval period in Indian history spans approximately from the 6th century to the 18th century CE. This era witnessed significant transformations in political structures, religious practices, economic systems, and cultural expressions. It is typically divided into two phases: the Early Medieval Period (c. 6th–13th centuries) and the Late Medieval Period (c. 13th–18th centuries).</p>
+                    
+                    <div class="sub-section">
+                        <h4>Historical Significance</h4>
+                        <p>This period marked the transition from ancient to early modern India, characterized by the emergence of regional kingdoms, the spread of Islam, and the development of new cultural syntheses. The medieval era laid the foundation for many aspects of modern Indian society, including administrative systems, architectural styles, and religious practices.</p>
+                        <div class="highlight-box">
+                            <p>The interplay of diverse cultures, religions, and political entities created a rich and complex historical tapestry that continues to influence the subcontinent's identity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Tomb_of_Humayun%2C_Delhi.jpg/1920px-Tomb_of_Humayun%2C_Delhi.jpg" alt="Humayun's Tomb" class="historical-image">
+                    <div class="image-title">Humayun's Tomb - A Symbol of Medieval Architecture</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Early Medieval Period (c. 6th–13th Century)</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Following the decline of the Gupta Empire, India saw the emergence of numerous regional kingdoms that shaped the political landscape of the early medieval period.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Major Kingdoms</h4>
+                        <ul>
+                            <li><strong>Pala Empire:</strong> Established in Bengal, the Palas were notable patrons of Buddhism and played a crucial role in its revival.</li>
+                            <li><strong>Gurjara-Pratihara Dynasty:</strong> Dominated northern India and were instrumental in resisting Arab invasions.</li>
+                            <li><strong>Rashtrakuta Dynasty:</strong> Ruled over the Deccan region and were known for their patronage of art and architecture, including the rock-cut temples at Ellora.</li>
+                            <li><strong>Chola Dynasty:</strong> Based in Tamil Nadu, the Cholas expanded their influence to Southeast Asia and are renowned for their naval prowess and temple architecture.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>The early medieval period was characterized by political fragmentation but also by significant cultural and artistic achievements, particularly in temple architecture and literature.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Le_temple_de_Brihadishwara_%28Tanjore%2C_Inde%29_%2814354574611%29.jpg/1280px-Le_temple_de_Brihadishwara_%28Tanjore%2C_Inde%29_%2814354574611%29.jpg" alt="Brihadishwara Temple" class="historical-image">
+                    <div class="image-title">Brihadishwara Temple - Chola Architecture</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Late Medieval Period (c. 13th–18th Century)</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The late medieval period was marked by the establishment of Islamic rule and the rise of powerful empires that unified large portions of the Indian subcontinent.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Major Empires</h4>
+                        <ul>
+                            <li><strong>Delhi Sultanate:</strong> Comprised five dynasties (Mamluk, Khilji, Tughlaq, Sayyid, and Lodi) that ruled northern India and introduced significant administrative and military reforms.</li>
+                            <li><strong>Vijayanagara Empire:</strong> A prominent Hindu kingdom in South India that served as a bulwark against northern invasions and fostered a rich cultural heritage.</li>
+                            <li><strong>Mughal Empire:</strong> Founded by Babur in 1526, the Mughals unified much of the Indian subcontinent, leading to a period of relative stability, economic prosperity, and cultural flourishing.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>The late medieval period saw the emergence of a unique Indo-Islamic culture, characterized by the fusion of Persian, Central Asian, and Indian artistic and architectural traditions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Taj_Mahal%2C_Agra%2C_India_edit3.jpg/800px-Taj_Mahal%2C_Agra%2C_India_edit3.jpg" alt="Taj Mahal" class="historical-image">
+                    <div class="image-title">Taj Mahal - Mughal Architectural Marvel</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Religion and Society</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Medieval India was a tapestry of diverse religious beliefs and practices, with significant developments in Hinduism, Islam, Sikhism, and other traditions.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Religious Developments</h4>
+                        <ul>
+                            <li><strong>Hinduism:</strong> Continued to evolve with the Bhakti movement emphasizing personal devotion and challenging caste hierarchies. Saints like Kabir and Meera Bai became prominent figures.</li>
+                            <li><strong>Islam:</strong> Introduced by invading armies and traders, Islam became a significant force, leading to the establishment of Sufi orders that emphasized mysticism and communal harmony.</li>
+                            <li><strong>Sikhism:</strong> Founded by Guru Nanak in the 15th century, Sikhism emerged as a distinct religion promoting equality and monotheism.</li>
+                            <li><strong>Jainism and Buddhism:</strong> While Buddhism declined in many regions, Jainism maintained a presence, particularly in western India.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>Society was predominantly agrarian, with a rigid caste system. However, urban centers became melting pots of cultures, fostering trade and artisanal activities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Economy, Trade, and Culture</h2>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>The economy of medieval India was diverse and dynamic, with significant developments in agriculture, trade, and urban centers.</p>
+                    
+                    <div class="sub-section">
+                        <h4>Economic and Cultural Achievements</h4>
+                        <ul>
+                            <li><strong>Agriculture:</strong> Remained the backbone, with innovations in irrigation and crop rotation enhancing productivity.</li>
+                            <li><strong>Trade:</strong> India was a hub in global trade networks, exporting spices, textiles, and precious stones. Ports like Calicut and Surat were bustling centers of commerce.</li>
+                            <li><strong>Markets and Currency:</strong> A variety of coins were in circulation, and markets were regulated to ensure fair trade practices.</li>
+                            <li><strong>Art and Architecture:</strong> Medieval India witnessed remarkable achievements in temple architecture, Islamic structures, and miniature paintings.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p>The arrival of European trading companies in the late medieval period marked the beginning of significant economic shifts that would transform India's relationship with the global economy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Shaniwar_wada_%28pune%29.jpg" alt="Shaniwar Wada" class="historical-image">
+                    <div class="image-title">Shaniwar Wada - Maratha Architecture</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bibliography">
+            <h2>Bibliography</h2>
+            <ol>
+                <li>Chattopadhyaya, B.D. (1994). <em>The Making of Early Medieval India</em>. Oxford University Press.</li>
+                <li>Habib, Irfan. (1999). <em>The Agrarian System of Mughal India (1556–1707)</em>. Oxford University Press.</li>
+                <li>Jackson, Peter. (1999). <em>The Delhi Sultanate: A Political and Military History</em>. Cambridge University Press.</li>
+                <li>Thapar, Romila. (2003). <em>Early India: From the Origins to AD 1300</em>. Penguin Books.</li>
+                <li>Eaton, Richard M. (2000). <em>Essays on Islam and Indian History</em>. Oxford University Press.</li>
+                <li>Asher, Catherine B., and Talbot, Cynthia. (2006). <em>India Before Europe</em>. Cambridge University Press.</li>
+                <li>Kulke, Hermann and Rothermund, Dietmar. (2010). <em>A History of India</em>. Routledge.</li>
+                <li>Metcalf, Barbara D. and Metcalf, Thomas R. (2012). <em>A Concise History of Modern India</em>. Cambridge University Press.</li>
+                <li>Sharma, R.S. (2001). <em>Early Medieval Indian Society: A Study in Feudalisation</em>. Orient Longman.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html> 
